@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Encontrá tu Fragancia Perfecta | Aromas & Sentimientos</title>
+  <meta name="description" content="Respondé 6 preguntas y descubrí cuál de nuestras 13 fragancias artesanales es la ideal para vos. Quiz personalizado de Aromas & Sentimientos.">
+  <meta name="keywords" content="quiz fragancia, test perfume, que fragancia soy, quiz aroma, recomendación fragancia personalizada">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tufragancia.netlify.app/quiz.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quiz — Encontrá tu Fragancia Perfecta | Aromas & Sentimientos">
+  <meta property="og:description" content="Respondé 6 preguntas y descubrí cuál fragancia artesanal es la ideal para vos.">
+  <meta property="og:url" content="https://tufragancia.netlify.app/quiz.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="nav-logo">Aromas <span>&</span> Sentimientos</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="fragancias.html">Fragancias</a></li>
+    <li><a href="aplicacion.html">Aplicación</a></li>
+    <li><a href="quiz.html" class="active">Quiz</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Miga de pan">
+      <a href="index.html">Inicio</a><span>›</span><span>Quiz</span>
+    </nav>
+    <span class="section-label">Quiz Personalizado</span>
+    <h1>Encontrá tu <em>fragancia perfecta</em></h1>
+    <p>Respondé 6 preguntas sobre tus gustos y emociones. Te recomendamos la esencia ideal para vos.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-wrapper" id="quiz-container" role="main" aria-label="Quiz de fragancias">
+
+      <!-- PROGRESS -->
+      <div class="quiz-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="1" aria-label="Progreso del quiz">
+        <div class="quiz-progress-fill" id="quiz-progress" style="width:16.6%"></div>
+      </div>
+
+      <!-- PASO 1 -->
+      <div class="quiz-step active" id="step-1" aria-labelledby="q1-title">
+        <p class="quiz-step-label">Pregunta 1 de 6</p>
+        <h2 class="quiz-question" id="q1-title">¿Cómo te sentís hoy?</h2>
+        <div class="quiz-options" role="group" aria-label="Opciones de estado emocional">
+          <button class="quiz-option" onclick="selectOption(this, 'emo_feeling', 'calma')" aria-pressed="false">
+            <div class="quiz-option-icon">🧘</div>
+            <p class="quiz-option-label">Necesito Calma</p>
+            <p class="quiz-option-desc">Estresado, cansado o buscando paz interior</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_feeling', 'energia')" aria-pressed="false">
+            <div class="quiz-option-icon">⚡</div>
+            <p class="quiz-option-label">Necesito Energía</p>
+            <p class="quiz-option-desc">Sin motivación, necesito vitalidad</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_feeling', 'seduccion')" aria-pressed="false">
+            <div class="quiz-option-icon">✨</div>
+            <p class="quiz-option-label">Necesito Seducción</p>
+            <p class="quiz-option-desc">Quiero atracción, sensualidad y misterio</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_feeling', 'bienestar')" aria-pressed="false">
+            <div class="quiz-option-icon">🌿</div>
+            <p class="quiz-option-label">Necesito Equilibrio</p>
+            <p class="quiz-option-desc">Busco balance, armonía y bienestar</p>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <span></span>
+          <button class="btn btn-gold" onclick="nextStep(2)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="quiz-step" id="step-2" aria-labelledby="q2-title">
+        <p class="quiz-step-label">Pregunta 2 de 6</p>
+        <h2 class="quiz-question" id="q2-title">Si tuvieras que elegir otro sentimiento…</h2>
+        <div class="quiz-options" role="group">
+          <button class="quiz-option" onclick="selectOption(this, 'emo_mood', 'calma')" aria-pressed="false">
+            <div class="quiz-option-icon">🧘</div>
+            <p class="quiz-option-label">Calma</p>
+            <p class="quiz-option-desc">Paz, tranquilidad, meditación</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_mood', 'energia')" aria-pressed="false">
+            <div class="quiz-option-icon">⚡</div>
+            <p class="quiz-option-label">Energía</p>
+            <p class="quiz-option-desc">Vitalidad, claridad, concentración</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_mood', 'bienestar')" aria-pressed="false">
+            <div class="quiz-option-icon">💝</div>
+            <p class="quiz-option-label">Bienestar</p>
+            <p class="quiz-option-desc">Calidez, afecto, comodidad</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'emo_mood', 'seduccion')" aria-pressed="false">
+            <div class="quiz-option-icon">✨</div>
+            <p class="quiz-option-label">Sensualidad</p>
+            <p class="quiz-option-desc">Seducción, misterio, encanto</p>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" onclick="prevStep(1)">← Anterior</button>
+          <button class="btn btn-gold" onclick="nextStep(3)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="quiz-step" id="step-3" aria-labelledby="q3-title">
+        <p class="quiz-step-label">Pregunta 3 de 6</p>
+        <h2 class="quiz-question" id="q3-title">¿Qué tipo de aromas preferís?</h2>
+        <div class="quiz-options" role="group">
+          <button class="quiz-option" onclick="selectOption(this, 'aroma_type', 'floral')" aria-pressed="false">
+            <div class="quiz-option-icon">🌸</div>
+            <p class="quiz-option-label">Floral</p>
+            <p class="quiz-option-desc">Flores, délico y romántico</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'aroma_type', 'citrica')" aria-pressed="false">
+            <div class="quiz-option-icon">🍋</div>
+            <p class="quiz-option-label">Cítrica</p>
+            <p class="quiz-option-desc">Limón, naranja, fresco y vivaz</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'aroma_type', 'dulce')" aria-pressed="false">
+            <div class="quiz-option-icon">🍯</div>
+            <p class="quiz-option-label">Dulce</p>
+            <p class="quiz-option-desc">Caramelo, miel, confortable</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'aroma_type', 'fresca')" aria-pressed="false">
+            <div class="quiz-option-icon">❄️</div>
+            <p class="quiz-option-label">Fresca</p>
+            <p class="quiz-option-desc">Acuática, limpia, revitalizante</p>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" onclick="prevStep(2)">← Anterior</button>
+          <button class="btn btn-gold" onclick="nextStep(4)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 4 -->
+      <div class="quiz-step" id="step-4" aria-labelledby="q4-title">
+        <p class="quiz-step-label">Pregunta 4 de 6</p>
+        <h2 class="quiz-question" id="q4-title">¿Dónde usarías principalmente la fragancia?</h2>
+        <div class="quiz-options" role="group">
+          <button class="quiz-option" onclick="selectOption(this, 'uso_principal', 'Persona')" aria-pressed="false">
+            <div class="quiz-option-icon">✨</div>
+            <p class="quiz-option-label">En mi Persona</p>
+            <p class="quiz-option-desc">Como perfume personal, mi firma olfativa</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'uso_principal', 'Ropa')" aria-pressed="false">
+            <div class="quiz-option-icon">👗</div>
+            <p class="quiz-option-label">En mi Ropa</p>
+            <p class="quiz-option-desc">Para que mis prendas huelan bien</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'uso_principal', 'Casa')" aria-pressed="false">
+            <div class="quiz-option-icon">🏡</div>
+            <p class="quiz-option-label">En mi Ambiente</p>
+            <p class="quiz-option-desc">Para aromatizar mi casa o espacio</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'uso_principal', 'Oficina')" aria-pressed="false">
+            <div class="quiz-option-icon">📚</div>
+            <p class="quiz-option-label">En mi Oficina</p>
+            <p class="quiz-option-desc">Para mejorar concentración y ambiente laboral</p>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" onclick="prevStep(3)">← Anterior</button>
+          <button class="btn btn-gold" onclick="nextStep(5)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 5 -->
+      <div class="quiz-step" id="step-5" aria-labelledby="q5-title">
+        <p class="quiz-step-label">Pregunta 5 de 6</p>
+        <h2 class="quiz-question" id="q5-title">¿Cuándo preferís usar fragancias?</h2>
+        <div class="quiz-options" role="group" style="grid-template-columns: 1fr 1fr 1fr;">
+          <button class="quiz-option" onclick="selectOption(this, 'preferencia_temporal', 'dia')" aria-pressed="false">
+            <div class="quiz-option-icon">☀️</div>
+            <p class="quiz-option-label">Durante el Día</p>
+            <p class="quiz-option-desc">Fresco, energético, que no sea muy fuerte</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'preferencia_temporal', 'noche')" aria-pressed="false">
+            <div class="quiz-option-icon">🌙</div>
+            <p class="quiz-option-label">Por la Noche</p>
+            <p class="quiz-option-desc">Profundo, sensual, con presencia</p>
+          </button>
+          <button class="quiz-option" onclick="selectOption(this, 'preferencia_temporal', 'ambos')" aria-pressed="false">
+            <div class="quiz-option-icon">🔄</div>
+            <p class="quiz-option-label">Ambos Momentos</p>
+            <p class="quiz-option-desc">Versátil, que funcione siempre</p>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" onclick="prevStep(4)">← Anterior</button>
+          <button class="btn btn-gold" onclick="nextStep(6)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 6 — DATOS -->
+      <div class="quiz-step" id="step-6" aria-labelledby="q6-title">
+        <p class="quiz-step-label">Pregunta 6 de 6</p>
+        <h2 class="quiz-question" id="q6-title">Completá tus datos</h2>
+        <p style="font-size:0.85rem; color:var(--cream-dim); margin-bottom:2rem;">Necesitamos esta información para personalizar tu resultado y compartir la recomendación con vos.</p>
+
+        <div class="quiz-form-fields">
+          <div>
+            <label class="quiz-input-label" for="nombre-usuario">Nombre *</label>
+            <input class="quiz-input" type="text" id="nombre-usuario" placeholder="Tu nombre" autocomplete="given-name" required aria-required="true">
+            <div class="campo-error" role="alert" aria-live="polite"></div>
+          </div>
+          <div>
+            <label class="quiz-input-label" for="email-usuario">Email *</label>
+            <input class="quiz-input" type="email" id="email-usuario" placeholder="tu@email.com" autocomplete="email" required aria-required="true">
+            <div class="campo-error" role="alert" aria-live="polite"></div>
+          </div>
+          <div>
+            <label class="quiz-input-label" for="telefono-usuario">Teléfono *</label>
+            <input class="quiz-input" type="tel" id="telefono-usuario" placeholder="+54 11 xxxx-xxxx" autocomplete="tel" required aria-required="true">
+            <div class="campo-error" role="alert" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem; color:var(--text-dim); margin-top:1.2rem; line-height:1.6;">
+          🔒 Tus datos serán guardados de forma segura. Nunca compartimos tu información con terceros. Solo usaremos tu email para enviarte detalles sobre tu fragancia recomendada.
+        </p>
+
+        <div class="quiz-nav">
+          <button class="btn btn-outline" onclick="prevStep(5)">← Anterior</button>
+          <button class="btn btn-gold" onclick="finalizarQuiz()">✨ Ver Mi Fragancia →</button>
+        </div>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="quiz-result" id="quiz-resultado" role="region" aria-live="polite" aria-label="Resultado del quiz"></div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand">Aromas <span>&</span> Sentimientos</p>
+      <p class="footer-desc">Fragancias artesanales seleccionadas para transformar tu espacio, tu cuerpo y tu energía.</p>
+      <div class="social-links" style="margin-top:1rem;">
+        <a href="https://www.instagram.com/aromassentimientos" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">📸</a>
+        <a href="https://www.facebook.com/aromassentimientos" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">👍</a>
+        <a href="https://api.whatsapp.com/send?phone=541144353202" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div><p class="footer-title">Páginas</p><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="fragancias.html">Fragancias</a></li><li><a href="aplicacion.html">Aplicación</a></li><li><a href="quiz.html">Quiz</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div><p class="footer-title">El Quiz</p><ul class="footer-links"><li><a href="#">Paso 1: Emoción</a></li><li><a href="#">Paso 2: Estado</a></li><li><a href="#">Paso 3: Aroma</a></li><li><a href="#">Paso 4: Uso</a></li></ul></div>
+    <div><p class="footer-title">Contacto</p><ul class="footer-links"><li><a href="tel:+541144353202">5411 4435-3202</a></li><li><a href="mailto:jodelriost@gmail.com">jodelriost@gmail.com</a></li><li style="color:var(--text-dim); font-size:0.85rem; line-height:1.5;">Av. Regimiento de Patricios 846<br>Barracas, CABA (1265)</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Aromas & Sentimientos. Todos los derechos reservados.</p>
+    <p>Barracas, Ciudad Autónoma de Buenos Aires, Argentina</p>
+  </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesan%20las%20fragancias" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Contactar por WhatsApp">💬</a>
+
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<!-- Configuración y funciones de Supabase -->
+<script src="js/supabase-config.js" defer></script>
+<!-- Scripts principales -->
+<script src="js/main.js" defer></script>
+<script src="js/quiz.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+
+
+# Bloquear archivos innecesarios
+Disallow: /css/
+Disallow: /js/

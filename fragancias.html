@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fragancias Artesanales — 13 Esencias Únicas | Aromas & Sentimientos</title>
+  <meta name="description" content="Explorá las 13 fragancias artesanales de Aromas & Sentimientos. Desde florales delicadas hasta cítricas energizantes. Cada una, un viaje interior único.">
+  <meta name="keywords" content="fragancias artesanales, magnolia, jazmín, bambú, bullbridge, té verde, gardenias, aromaterapia Buenos Aires">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tufragancia.netlify.app/fragancias.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="13 Fragancias Artesanales — Aromas & Sentimientos">
+  <meta property="og:description" content="Explorá las 13 fragancias artesanales únicas de Aromas & Sentimientos Buenos Aires.">
+  <meta property="og:url" content="https://tufragancia.netlify.app/fragancias.html">
+  <meta property="og:image" content="https://tufragancia.netlify.app/images/fragrance-magnolia.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Catálogo de Fragancias — Aromas & Sentimientos",
+    "description": "Las 13 fragancias artesanales de Aromas y Sentimientos.",
+    "url": "https://aromassentimientos.com.ar/fragancias.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://aromassentimientos.com.ar/"},
+        {"@type":"ListItem","position":2,"name":"Fragancias","item":"https://aromassentimientos.com.ar/fragancias.html"}
+      ]
+    }
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="nav-logo">Aromas <span>&</span> Sentimientos</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="fragancias.html" class="active">Fragancias</a></li>
+    <li><a href="aplicacion.html">Aplicación</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Miga de pan">
+      <a href="index.html">Inicio</a>
+      <span>›</span>
+      <span>Fragancias</span>
+    </nav>
+    <span class="section-label">Colección Completa</span>
+    <h1>Nuestras <em>fragancias</em></h1>
+    <p>Trece esencias únicas, cada una un viaje interior diferente. Encontrá la que conecta con vos.</p>
+  </div>
+</header>
+
+<!-- FILTROS -->
+<section style="padding: 2rem; border-bottom: 1px solid var(--border); background: var(--surface);">
+  <div class="container">
+    <div style="display:flex; gap:0.6rem; flex-wrap:wrap; justify-content:center;" role="group" aria-label="Filtrar fragancias">
+      <button class="filter-btn active" data-filter="all" onclick="filterFragancias('all',this)">Todas</button>
+      <button class="filter-btn" data-filter="floral" onclick="filterFragancias('floral',this)">🌸 Florales</button>
+      <button class="filter-btn" data-filter="citrica" onclick="filterFragancias('citrica',this)">🍋 Cítricas</button>
+      <button class="filter-btn" data-filter="dulce" onclick="filterFragancias('dulce',this)">🍯 Dulces</button>
+      <button class="filter-btn" data-filter="fresca" onclick="filterFragancias('fresca',this)">❄️ Frescas</button>
+      <button class="filter-btn" data-filter="herbal" onclick="filterFragancias('herbal',this)">🌿 Herbales</button>
+      <button class="filter-btn" data-filter="tropical" onclick="filterFragancias('tropical',this)">🌴 Tropicales</button>
+    </div>
+  </div>
+</section>
+<style>
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--cream-dim);
+  border-radius: 2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,169,110,0.06);
+}
+.frag-card { transition: all 0.4s ease; }
+.frag-card.hidden {
+  display: none;
+}
+
+/* Layout dinámico centrado según cantidad de items visibles */
+/* Default: 4 columnas para todas las fragancias (13) */
+.frag-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 1.5rem;
+  justify-content: center;
+}
+/* Imagen siempre usa tamaño de 4 columnas (~280px) */
+.frag-card-img {
+  width: 280px;
+  max-width: 100%;
+  height: 210px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.frag-card.hidden {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+/* 1 item visible */
+.frag-grid[data-visible="1"] {
+  grid-template-columns: 300px;
+}
+/* 2 items - 2 columnas */
+.frag-grid[data-visible="2"] {
+  grid-template-columns: repeat(2, 300px);
+}
+/* 3 items - 3 columnas */
+.frag-grid[data-visible="3"] {
+  grid-template-columns: repeat(3, 300px);
+}
+</style>
+
+<section class="section" aria-label="Catálogo de fragancias">
+  <div class="container">
+    <div class="frag-grid" id="frag-grid" role="list">
+
+      <!-- 1. MAGNOLIA -->
+      <article class="frag-card reveal" data-tipo="floral" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-magnolia.jpg" alt="Fragancia Magnolia - Floral delicada, fresca con notas dulces" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">01 · Floral · Delicada</p>
+          <h2 class="frag-name" itemprop="name">Magnolia</h2>
+          <p class="frag-perfil" itemprop="description">Fresca con notas dulces</p>
+          <p class="frag-desc">Evoca la pureza y calma de un jardín en primavera. Una fragancia que trae serenidad y conecta con la belleza natural.</p>
+          <div class="frag-usos" aria-label="Usos recomendados">
+            <span class="frag-uso-tag">Ropa</span>
+            <span class="frag-uso-tag">Persona</span>
+            <span class="frag-uso-tag">Casa</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Magnolia" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. GARDENIAS -->
+      <article class="frag-card reveal" data-tipo="floral" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-gardenias.jpg" alt="Fragancia Gardenias - Floral intensa y atractiva" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">02 · Floral · Intensa</p>
+          <h2 class="frag-name" itemprop="name">Gardenias</h2>
+          <p class="frag-perfil" itemprop="description">Fresca, intensa y atractiva</p>
+          <p class="frag-desc">Un aroma que atrae y llena de energía el ambiente. La gardenia como símbolo de presencia vibrante.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Ambiente</span>
+            <span class="frag-uso-tag">Persona</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Gardenias" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. BULLBRIDGE -->
+      <article class="frag-card reveal" data-tipo="citrica" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-bullbridge.jpg" alt="Fragancia Bullbridge - Cítrica sofisticada" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">03 · Cítrica · Sofisticada</p>
+          <h2 class="frag-name" itemprop="name">Bullbridge</h2>
+          <p class="frag-perfil" itemprop="description">Sofisticada, cálida, fresca y cítrica</p>
+          <p class="frag-desc">Una fragancia compleja que te identifica. Elegancia y carácter único en cada aplicación.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Firma</span>
+            <span class="frag-uso-tag">Persona</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Bullbridge" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. SANDÍA Y PEPINO -->
+      <article class="frag-card reveal" data-tipo="fresca" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-sandia.jpg" alt="Fragancia Sandía y Pepino - Acuática revitalizante" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">04 · Acuática · Revitalizante</p>
+          <h2 class="frag-name" itemprop="name">Sandía y Pepino</h2>
+          <p class="frag-perfil" itemprop="description">Revitalizante y fresca</p>
+          <p class="frag-desc">Ideal para cuando estás cansado. Aporta frescura que despierta los sentidos y restaura tu energía.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Auto</span>
+            <span class="frag-uso-tag">Oficina</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Sand%C3%ADa%20y%20Pepino" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. SOFTY -->
+      <article class="frag-card reveal" data-tipo="fresca" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-softy.jpg" alt="Fragancia Softy - Suave hogareña" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">05 · Suave · Hogareña</p>
+          <h2 class="frag-name" itemprop="name">Softy</h2>
+          <p class="frag-perfil" itemprop="description">Suave, fresca, limpia y reconfortante</p>
+          <p class="frag-desc">Transmite la sensación de sábanas limpias y un hogar acogedor. Confort y paz en estado puro.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Ropa de cama</span>
+            <span class="frag-uso-tag">Casa</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Softy" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. ALMENDRA Y FRESIA -->
+      <article class="frag-card reveal" data-tipo="dulce" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-almendra.jpg" alt="Fragancia Almendra y Fresia - Dulce floral" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">06 · Dulce · Floral</p>
+          <h2 class="frag-name" itemprop="name">Almendra y Fresia</h2>
+          <p class="frag-perfil" itemprop="description">Dulce y floral con calidez</p>
+          <p class="frag-desc">Brinda calidez y una sensación de abrazo constante. La ternura hecha aroma, perfecta para momentos íntimos.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Persona</span>
+            <span class="frag-uso-tag">Ropa</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Almendra%20y%20Fresia" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. MIEL DE HADAS -->
+      <article class="frag-card reveal" data-tipo="dulce" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-miel.jpg" alt="Fragancia Miel de Hadas - Dulce etérea mágica" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">07 · Dulce · Etérea</p>
+          <h2 class="frag-name" itemprop="name">Miel de Hadas</h2>
+          <p class="frag-perfil" itemprop="description">Dulce y mágica</p>
+          <p class="frag-desc">Un aroma que invita a soñar y a la alegría. Como un cuento hecho fragancia, liviano y encantador.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Niños</span>
+            <span class="frag-uso-tag">Ambiente</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Miel%20de%20Hadas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. LIMÓN Y JENGIBRE -->
+      <article class="frag-card reveal" data-tipo="citrica" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-limon.jpg" alt="Fragancia Limón y Jengibre - Cítrica energizante" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">08 · Cítrica · Energizante</p>
+          <h2 class="frag-name" itemprop="name">Limón y Jengibre</h2>
+          <p class="frag-perfil" itemprop="description">Cítrica y picante</p>
+          <p class="frag-desc">Energizante natural que ayuda a concentrarte. Ideal para espacios de trabajo y momentos que requieren atención.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Oficina</span>
+            <span class="frag-uso-tag">Estudio</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Lim%C3%B3n%20y%20Jengibre" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. COCO Y MELÓN -->
+      <article class="frag-card reveal" data-tipo="tropical" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-coco.jpg" alt="Fragancia Coco y Melón - Tropical alegre" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">09 · Tropical · Alegre</p>
+          <h2 class="frag-name" itemprop="name">Coco y Melón</h2>
+          <p class="frag-perfil" itemprop="description">Tropical y alegre</p>
+          <p class="frag-desc">Te lleva a lugares de playa y sol. Cerrá los ojos y sentite en el paraíso con cada inhalación.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Verano</span>
+            <span class="frag-uso-tag">Auto</span>
+            <span class="frag-uso-tag">Casa</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Coco%20y%20Mel%C3%B3n" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. TÉ VERDE -->
+      <article class="frag-card reveal" data-tipo="herbal" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-te.jpg" alt="Fragancia Té Verde - Herbal meditativa" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">10 · Herbal · Meditativa</p>
+          <h2 class="frag-name" itemprop="name">Té Verde</h2>
+          <p class="frag-perfil" itemprop="description">Herbal y fresco</p>
+          <p class="frag-desc">Ayuda a meditar y limpiar la energía. Un momento de silencio interior en cada aplicación.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Meditación</span>
+            <span class="frag-uso-tag">Yoga</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20T%C3%A9%20Verde" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. BAMBÚ -->
+      <article class="frag-card reveal" data-tipo="herbal" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-bambu.jpg" alt="Fragancia Bambú - Natural Zen" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">11 · Natural · Zen</p>
+          <h2 class="frag-name" itemprop="name">Bambú</h2>
+          <p class="frag-perfil" itemprop="description">Zen y natural</p>
+          <p class="frag-desc">Una fragancia pura que conecta con lo esencial. Minimalismo olfativo en su máxima expresión.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Spa</span>
+            <span class="frag-uso-tag">Minimalista</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Bamb%C3%BA" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. JAZMÍN -->
+      <article class="frag-card reveal" data-tipo="floral" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-jazmin.jpg" alt="Fragancia Jazmín - Floral intensa seductora" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">12 · Floral · Intensa</p>
+          <h2 class="frag-name" itemprop="name">Jazmín</h2>
+          <p class="frag-perfil" itemprop="description">Floral intenso y seductor</p>
+          <p class="frag-desc">Seductor y calmante a la vez. El jazmín como símbolo de sensualidad y paz nocturna.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Noche</span>
+            <span class="frag-uso-tag">Persona</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Jazm%C3%ADn" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13. CRISTÓBAL -->
+      <article class="frag-card reveal" data-tipo="fresca" role="listitem" itemscope itemtype="https://schema.org/Product">
+        <img src="images/fragrance-cristobal.jpg" alt="Fragancia Cristóbal - Masculina fresca" class="frag-card-img" width="400" height="300" loading="lazy" itemprop="image">
+        <div class="frag-card-body">
+          <p class="frag-cat">13 · Masculina · Fresca</p>
+          <h2 class="frag-name" itemprop="name">Cristóbal</h2>
+          <p class="frag-perfil" itemprop="description">Fresco, limpio y seguro</p>
+          <p class="frag-desc">Una opción masculina que proyecta seguridad y paz. Sensorial, limpio y puro, para el hombre que sabe quién es.</p>
+          <div class="frag-usos">
+            <span class="frag-uso-tag">Hombre</span>
+            <span class="frag-uso-tag">Persona</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesa%20la%20fragancia%20Crist%C3%B3bal" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.62rem; padding:0.6rem 1.2rem;">Consultar →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--surface); border-top:1px solid var(--border); text-align:center;">
+  <div class="container reveal">
+    <span class="section-label">¿No sabés cuál elegir?</span>
+    <h2>Hacé el <em>quiz personalizado</em></h2>
+    <div class="gold-line center"></div>
+    <p style="max-width:50ch; margin:0 auto 2rem;">Respondé 6 preguntas y te recomendamos la fragancia ideal para vos.</p>
+    <a href="quiz.html" class="btn btn-gold">Hacer el Quiz →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand">Aromas <span>&</span> Sentimientos</p>
+      <p class="footer-desc">Fragancias artesanales seleccionadas para transformar tu espacio, tu cuerpo y tu energía.</p>
+      <div class="social-links" style="margin-top:1rem;">
+        <a href="https://www.instagram.com/aromassentimientos" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">📸</a>
+        <a href="https://www.facebook.com/aromassentimientos" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">👍</a>
+        <a href="https://api.whatsapp.com/send?phone=541144353202" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-title">Páginas</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="fragancias.html">Fragancias</a></li>
+        <li><a href="aplicacion.html">Aplicación</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-title">Categorías</p>
+      <ul class="footer-links">
+        <li><a href="#" onclick="filterFragancias('floral',null)">Florales</a></li>
+        <li><a href="#" onclick="filterFragancias('citrica',null)">Cítricas</a></li>
+        <li><a href="#" onclick="filterFragancias('dulce',null)">Dulces</a></li>
+        <li><a href="#" onclick="filterFragancias('herbal',null)">Herbales</a></li>
+        <li><a href="#" onclick="filterFragancias('tropical',null)">Tropicales</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-title">Contacto</p>
+      <ul class="footer-links">
+        <li><a href="tel:+541144353202">5411 4435-3202</a></li>
+        <li><a href="mailto:jodelriost@gmail.com">jodelriost@gmail.com</a></li>
+        <li style="color:var(--text-dim); font-size:0.85rem; line-height:1.5;">Av. Regimiento de Patricios 846<br>Barracas, CABA (1265)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Aromas & Sentimientos. Todos los derechos reservados.</p>
+    <p>Barracas, Ciudad Autónoma de Buenos Aires, Argentina</p>
+  </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=541144353202&text=Hola%2C%20me%20interesan%20las%20fragancias" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Contactar por WhatsApp">💬</a>
+
+<script src="js/main.js" defer></script>
+<script>
+function filterFragancias(tipo, btn) {
+  const cards = document.querySelectorAll('.frag-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    if (tipo === 'all' || card.dataset.tipo === tipo) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // Actualizar atributo data-visible para el layout dinámico
+  const grid = document.getElementById('frag-grid');
+  grid.setAttribute('data-visible', visibleCount);
+
+  if (btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+// Inicializar data-visible al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+  const grid = document.getElementById('frag-grid');
+  const totalCards = grid.querySelectorAll('.frag-card').length;
+  grid.setAttribute('data-visible', totalCards);
+});
+</script>
+</body>
+</html>
