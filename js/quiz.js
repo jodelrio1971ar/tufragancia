@@ -9,13 +9,12 @@ const FRAGANCIAS_DATA = [
   { id:4, nombre:'Sandía y Pepino', perfil:'Revitalizante y fresca', categoria:'Acuática · Revitalizante', desc:'Ideal para momentos de fatiga. Frescura acuática que despierta los sentidos.', img:'images/fragrance-sandia.jpg', propiedades:{ uso:['Auto','Oficina'] }, puntuaciones:{ calma:3, energia:9, seduccion:2, bienestar:7, frescor:10 } },
   { id:5, nombre:'Softy', perfil:'Suave, fresca, limpia y reconfortante', categoria:'Suave · Hogareña', desc:'Transmite la sensación de sábanas limpias y un hogar acogedor.', img:'images/fragrance-softy.jpg', propiedades:{ uso:['Ropa de cama','Casa'] }, puntuaciones:{ calma:8, energia:2, seduccion:1, bienestar:9, frescor:7 } },
   { id:6, nombre:'Almendra y Fresia', perfil:'Dulce y floral con calidez', categoria:'Dulce · Floral', desc:'Brinda calidez y una sensación de abrazo constante.', img:'images/fragrance-almendra.jpg', propiedades:{ uso:['Persona','Ropa'] }, puntuaciones:{ calma:7, energia:3, seduccion:6, bienestar:9, frescor:4 } },
-  { id:7, nombre:'Miel de Hadas', perfil:'Dulce y mágica', categoria:'Dulce · Etérea', desc:'Un aroma etéreo que invita a soñar y a la alegría.', img:'images/fragrance-miel.jpg', propiedades:{ uso:['Niños','Ambiente'] }, puntuaciones:{ calma:6, energia:4, seduccion:2, bienestar:8, frescor:3 } },
+  { id:7, nombre:'Naranja y Pimienta', perfil:'Energizante, chispeante y audaz', categoria:'Cítrica · Vibrante', desc:'Un equilibrio perfecto entre la frescura cítrica y la intensidad de la pimienta.', img:'images/fragance-naranjaypim.jpg', propiedades:{ uso:['Persona','Oficina','Auto'] }, puntuaciones:{ calma:3, energia:10, seduccion:7, bienestar:6, frescor:9 } },
   { id:8, nombre:'Limón y Jengibre', perfil:'Cítrica y picante', categoria:'Cítrica · Energizante', desc:'Energizante natural que ayuda a enfocar la mente.', img:'images/fragrance-limon.jpg', propiedades:{ uso:['Oficina','Estudio'] }, puntuaciones:{ calma:2, energia:10, seduccion:1, bienestar:6, frescor:9 } },
-  { id:9, nombre:'Coco y Melón', perfil:'Tropical y alegre', categoria:'Tropical · Alegre', desc:'Transporta a lugares soñados de playa y sol.', img:'images/fragrance-coco.jpg', propiedades:{ uso:['Verano','Auto','Casa'] }, puntuaciones:{ calma:4, energia:7, seduccion:3, bienestar:8, frescor:8 } },
+  { id:9, nombre:'Cedro y Pomelo Rosado', perfil:'Elegante, equilibrada y reconfortante', categoria:'Amaderada · Serena', desc:'La nobleza del cedro se encuentra con la dulzura cítrica del pomelo rosado.', img:'images/fragance-cedroypom.jpg', propiedades:{ uso:['Persona','Casa','Ropa'] }, puntuaciones:{ calma:8, energia:5, seduccion:6, bienestar:9, frescor:7 } },
   { id:10, nombre:'Té Verde', perfil:'Herbal y fresco', categoria:'Herbal · Meditativa', desc:'Ayuda a la meditación y a la limpieza energética.', img:'images/fragrance-te.jpg', propiedades:{ uso:['Meditación','Yoga'] }, puntuaciones:{ calma:9, energia:2, seduccion:1, bienestar:9, frescor:6 } },
-  { id:11, nombre:'Bambú', perfil:'Zen y natural', categoria:'Natural · Zen', desc:'Una fragancia pura que conecta con lo esencial de la vida.', img:'images/fragrance-bambu.jpg', propiedades:{ uso:['Spa','Minimalista'] }, puntuaciones:{ calma:10, energia:1, seduccion:1, bienestar:9, frescor:5 } },
-  { id:12, nombre:'Jazmín', perfil:'Floral intenso y seductor', categoria:'Floral · Intensa', desc:'Seductor y calmante al mismo tiempo.', img:'images/fragrance-jazmin.jpg', propiedades:{ uso:['Noche','Persona'] }, puntuaciones:{ calma:6, energia:3, seduccion:10, bienestar:7, frescor:3 } },
-  { id:13, nombre:'Cristóbal', perfil:'Fresco, limpio y seguro', categoria:'Masculina · Fresca', desc:'Una opción masculina que proyecta seguridad y paz envidiable.', img:'images/fragrance-cristobal.jpg', propiedades:{ uso:['Hombre','Persona'] }, puntuaciones:{ calma:7, energia:6, seduccion:5, bienestar:8, frescor:8 } }
+  { id:11, nombre:'Café', perfil:'Cálida, envolvente y estimulante', categoria:'Gourmand · Intensa', desc:'La esencia pura del café recién tostado. Un aroma que abraza los sentidos.', img:'images/fragance-cafe.jpg', propiedades:{ uso:['Casa','Oficina','Persona'] }, puntuaciones:{ calma:5, energia:9, seduccion:8, bienestar:7, frescor:4 } },
+  { id:12, nombre:'Cristóbal', perfil:'Fresco, limpio y seguro', categoria:'Masculina · Fresca', desc:'Una opción masculina que proyecta seguridad y paz envidiable.', img:'images/fragrance-cristobal.jpg', propiedades:{ uso:['Hombre','Persona'] }, puntuaciones:{ calma:7, energia:6, seduccion:5, bienestar:8, frescor:8 } }
 ];
 
 let respuestas = { emo_feeling:null, emo_mood:null, aroma_type:null, uso_principal:null, preferencia_temporal:null };
@@ -23,16 +22,15 @@ let currentStep = 1;
 const TOTAL_STEPS = 6;
 
 const aromapMapping = {
-  floral: ['Magnolia','Gardenias','Almendra y Fresia','Jazmín'],
-  citrica: ['Bullbridge','Limón y Jengibre'],
-  dulce: ['Almendra y Fresia','Miel de Hadas'],
-  fresca: ['Sandía y Pepino','Softy','Bambú','Cristóbal'],
-  herbal: ['Té Verde','Bambú'],
-  tropical: ['Coco y Melón']
+  floral: ['Magnolia','Gardenias','Almendra y Fresia'],
+  citrica: ['Bullbridge','Limón y Jengibre','Naranja y Pimienta','Cedro y Pomelo Rosado'],
+  dulce: ['Almendra y Fresia','Café'],
+  fresca: ['Sandía y Pepino','Softy','Cristóbal'],
+  herbal: ['Té Verde'],
+  tropical: []
 };
 
 function selectOption(el, campo, valor) {
-  // Deselect siblings
   el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(btn => {
     btn.classList.remove('selected');
     btn.setAttribute('aria-pressed', 'false');
@@ -50,14 +48,12 @@ function updateProgress(step) {
 }
 
 function nextStep(to) {
-  // Validate current step has a selection (except step 6)
   const currentKey = getKeyForStep(to - 1);
   if (currentKey && !respuestas[currentKey]) {
     showStepError('Por favor seleccioná una opción antes de continuar.');
     return;
   }
   clearStepError();
-
   document.getElementById(`step-${currentStep}`).classList.remove('active');
   document.getElementById(`step-${to}`).classList.add('active');
   currentStep = to;
@@ -93,7 +89,6 @@ function clearStepError() {
   if (err) err.remove();
 }
 
-// Validaciones
 function validarNombre(n) {
   if (!n || n.length < 2) return { valido:false, error:'El nombre debe tener al menos 2 caracteres.' };
   if (n.length > 50) return { valido:false, error:'El nombre no puede exceder 50 caracteres.' };
@@ -137,7 +132,6 @@ function validarCampoLive(input, tipo) {
   }
 }
 
-// Attach live validation
 document.addEventListener('DOMContentLoaded', () => {
   const inputs = [
     { id:'nombre-usuario', tipo:'nombre' },
@@ -196,14 +190,12 @@ async function finalizarQuiz() {
 
   const fragancia = calcularRecomendacion();
 
-  // Guardar en Supabase antes de mostrar el resultado
   await saveQuizResponse(nombre, email, telefono, respuestas, fragancia.nombre);
 
   mostrarResultado(fragancia, nombre, email);
 }
 
 function mostrarResultado(fragancia, nombre, email) {
-  // Hide all steps
   document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
 
   const resultado = document.getElementById('quiz-resultado');
@@ -242,13 +234,11 @@ function reiniciarQuiz() {
   document.getElementById('email-usuario').value = '';
   document.getElementById('telefono-usuario').value = '';
 
-  // Reset all options
   document.querySelectorAll('.quiz-option').forEach(btn => {
     btn.classList.remove('selected');
     btn.setAttribute('aria-pressed', 'false');
   });
 
-  // Reset input styles
   ['nombre-usuario','email-usuario','telefono-usuario'].forEach(id => {
     const el = document.getElementById(id);
     if (el) { el.style.borderColor = ''; el.style.boxShadow = ''; }

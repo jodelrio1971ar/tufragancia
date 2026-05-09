@@ -1,0 +1,26 @@
+Tu tarea es actualizar la pagina web teniendo en cuenta lo siguiente:
+Enfocate solo en los  cambios requeridos, el resto no hacer ningun cambio.
+
+Eliminar de la pagina web siguientes fragancias.
+1 - Miel de hadas
+2 - Coco y Melon
+3 - Bambu 
+4 - Jazmin
+
+Agregar a la pagina web las siguientes fragancias
+1 - Naranja y pimienta
+2 - Cedro y pomelo rosado
+3 - Cafe
+Las imagenes de las nuevas fragancias ya se encuentran en la carpeta images
+fragance-cafe.jpg
+fragance-naranjaypim.jpg
+fragance-cedroypom.jpg
+
+Genera un plan de accion por etapas.
+
+Agregado de fragancias a la pagina.
+Investiga para las fragancias que se incorporan la mejor descripcion de cada una y donde se recomiendan aplicar.
+Ajustar el quiz para que use las nuevas fragancias que se han agregado y no tome en cuenta las fragancias que se han eliminado.
+
+
+
