@@ -535,11 +535,11 @@ img { display: block; max-width: 100%; height: auto; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   h1 { font-size: 2.8rem; }
   h2 { font-size: 2rem; }
-  .frag-grid { grid-template-columns: 1fr; }
   .section { padding: 4rem 1.2rem; }
   .quiz-wrapper { padding: 2rem 1.2rem; }
 }
 @media (max-width: 480px) {
+  .frag-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; align-items: center; }
 }
@@ -588,3 +588,4 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .breadcrumb a { color: var(--gold); }
 .breadcrumb span { color: var(--text-dim); }
+

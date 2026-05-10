@@ -57,3 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // No orientation warning is shown.
+});

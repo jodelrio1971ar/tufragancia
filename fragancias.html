@@ -98,18 +98,18 @@
 }
 
 /* Layout dinámico centrado según cantidad de items visibles */
-/* Default: 4 columnas para todas las fragancias (13) */
+/* Default: auto-fit para responsividad */
 .frag-grid {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   justify-content: center;
 }
-/* Imagen siempre usa tamaño de 4 columnas (~280px) */
+/* Imagen ajustable */
 .frag-card-img {
-  width: 280px;
-  max-width: 100%;
-  height: 210px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
   aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
@@ -128,15 +128,15 @@
 }
 /* 1 item visible */
 .frag-grid[data-visible="1"] {
-  grid-template-columns: 300px;
+  grid-template-columns: 1fr;
 }
 /* 2 items - 2 columnas */
 .frag-grid[data-visible="2"] {
-  grid-template-columns: repeat(2, 300px);
+  grid-template-columns: repeat(2, 1fr);
 }
 /* 3 items - 3 columnas */
 .frag-grid[data-visible="3"] {
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(3, 1fr);
 }
 </style>
 
